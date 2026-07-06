@@ -1,7 +1,7 @@
 # Exploring AWS Services Lab - Solution
 
-**Student Name:** [Your Name]  
-**Date Completed:** [Date]
+**Student Name:** [Balint Lojt]  
+**Date Completed:** [06/07/2026]
 
 ---
 
