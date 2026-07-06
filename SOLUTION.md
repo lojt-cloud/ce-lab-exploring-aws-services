@@ -36,12 +36,13 @@
 
 ### Part B: Console Features
 
-**Lambda Category:** [Which category?]
+**Lambda Category:** compute
 
 **Pinned Services:**
-![S3 Pinned](screenshots/console-navigation/s3-pinned.png)
+<img width="669" height="153" alt="S3-pinned" src="https://github.com/user-attachments/assets/0a59210b-25a0-43a2-b0c0-9591b36e4b8e" />
 
-**Recently Visited:**
+
+Recently Visited:
 <img width="800" height="676" alt="Recently-visit" src="https://github.com/user-attachments/assets/8adde369-fd85-4155-992e-a60cddf7d5d1" />
 
 
