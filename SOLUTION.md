@@ -42,10 +42,12 @@
 ![S3 Pinned](screenshots/console-navigation/s3-pinned.png)
 
 **Recently Visited:**
-![Recently Visited](screenshots/console-navigation/recently-visited.png)
+<img width="800" height="676" alt="Recently-visit" src="https://github.com/user-attachments/assets/8adde369-fd85-4155-992e-a60cddf7d5d1" />
+
 
 **Region Selector:**
-![Region Changed](screenshots/console-navigation/region-selector.png)
+<img width="466" height="781" alt="region-selector" src="https://github.com/user-attachments/assets/306628c7-0965-4119-975f-f1a4f6738c24" />
+
 - Original region: United States (N. Virginia)
 - Changed to: Europe (Stockholm)
 - Changed back: [Yes]
