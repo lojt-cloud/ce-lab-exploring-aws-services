@@ -8,7 +8,7 @@
 ```
 $ aws --version
 
-[Paste your output here]
+aws-cli/2.31.35 Python/3.14.4 Linux/6.6.114.1-microsoft-standard-WSL2 source/x86_64.ubuntu.26
 ```
 
 ---
@@ -17,7 +17,11 @@ $ aws --version
 ```
 $ aws configure list
 
-[Paste your output here]
+NAME       : VALUE                    : TYPE             : LOCATION
+profile    : <not set>                : None             : None
+access_key : ****************UA73     : shared-credentials-file :
+secret_key : ****************5CXA     : shared-credentials-file :
+region     : eu-west-2                : config-file      : ~/.aws/config
 ```
 
 ---
@@ -26,7 +30,11 @@ $ aws configure list
 ```
 $ aws sts get-caller-identity
 
-[Paste your output here]
+{
+    "UserId": "AIDA22I7JKNVBEE427NCE",
+    "Account": "743631836010",
+    "Arn": "arn:aws:iam::743631836010:user/lojt-bootcamp"
+}
 ```
 
 ---
@@ -38,13 +46,24 @@ $ aws ec2 describe-regions --output table
 [Paste your output here]
 ```
 
----
+---------------------------------------------------------------------------------
+|                                DescribeRegions                                |
++-------------------------------------------------------------------------------+
+||                                   Regions                                   ||
+|+-----------------------------------+-----------------------+-----------------+|
+||             Endpoint              |      OptInStatus      |   RegionName    ||
+|+-----------------------------------+-----------------------+-----------------+|
+||  ec2.ap-south-1.amazonaws.com     |  opt-in-not-required  |  ap-south-1     ||
+||  ec2.eu-north-1.amazonaws.com     |  opt-in-not-required  |  eu-north-1     ||
+||  ec2.eu-west-3.amazonaws.com      |  opt-in-not-required  |  eu-west-3      ||
+||  ec2.eu-west-2.amazonaws.com      |  opt-in-not-required  |  eu-west-2      ||
+:
 
 ## Command 5: Get Default Region
 ```
 $ aws configure get region
 
-[Paste your output here]
+eu-west-2
 ```
 
 ---
@@ -53,7 +72,8 @@ $ aws configure get region
 ```
 $ aws s3 ls
 
-[Paste your output here]
+2026-07-06 12:31:56 aws-cloudtrail-logs-743631836010-4d76b8fa
+2026-07-06 12:34:08 aws-cloudtrail-logs-743631836010-65e73e3a
 ```
 
 ---
@@ -62,7 +82,27 @@ $ aws s3 ls
 ```
 $ aws ec2 describe-instance-types --query 'InstanceTypes[?contains(InstanceType, `t2`) || contains(InstanceType, `t3`)].InstanceType' --output table
 
-[Paste your output here]
+|DescribeInstanceTypes|
++---------------------+
+|  t2.2xlarge         |
+|  t3.2xlarge         |
+|  t3a.2xlarge        |
+|  t2.large           |
+|  t3.medium          |
+|  t3.large           |
+|  t3.xlarge          |
+|  t3a.small          |
+|  t2.micro           |
+|  t3a.medium         |
+|  t3a.large          |
+|  t3.nano            |
+|  t3.micro           |
+|  t2.medium          |
+|  t2.xlarge          |
+|  t3.small           |
+|  t2.small           |
+|  t2.nano            |
+|  t3a.nano           |
 ```
 
 ---
@@ -71,7 +111,45 @@ $ aws ec2 describe-instance-types --query 'InstanceTypes[?contains(InstanceType,
 ```
 $ aws iam get-account-summary
 
-[Paste your output here]
+{
+    "SummaryMap": {
+        "GroupPolicySizeQuota": 5120,
+        "InstanceProfilesQuota": 1000,
+        "Policies": 0,
+        "GroupsPerUserQuota": 10,
+        "InstanceProfiles": 0,
+        "AttachedPoliciesPerUserQuota": 10,
+        "Users": 1,
+        "PoliciesQuota": 1500,
+        "Providers": 0,
+        "AccountMFAEnabled": 1,
+        "AccessKeysPerUserQuota": 2,
+        "AssumeRolePolicySizeQuota": 2048,
+        "PolicyVersionsInUseQuota": 10000,
+        "GlobalEndpointTokenVersion": 1,
+        "VersionsPerPolicyQuota": 5,
+        "AttachedPoliciesPerGroupQuota": 10,
+        "PolicySizeQuota": 6144,
+        "Groups": 1,
+        "AccountSigningCertificatesPresent": 0,
+        "UsersQuota": 5000
+"ServerCertificatesQuota": 20,
+        "MFADevices": 2,
+        "UserPolicySizeQuota": 2048,
+        "PolicyVersionsInUse": 4,
+        "ServerCertificates": 0,
+        "Roles": 3,
+        "RolesQuota": 1000,
+        "SigningCertificatesPerUserQuota": 2,
+        "MFADevicesInUse": 2,
+        "RolePolicySizeQuota": 10240,
+        "AttachedPoliciesPerRoleQuota": 10,
+        "AccountAccessKeysPresent": 0,
+        "AccountPasswordPresent": 1,
+        "GroupsQuota": 300
+    }
+}
+
 ```
 
 ---
