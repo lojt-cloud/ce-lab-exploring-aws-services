@@ -11,23 +11,28 @@
 
 **EC2 (Compute):**
 - Purpose: Hosting and running virtual servers to deploy applications. 
-- Screenshot: ![EC2 Dashboard](screenshots/console-navigation/ec2-dashboard.png)
+- Screenshot: <img width="1894" height="707" alt="EC2-dashboard" src="https://github.com/user-attachments/assets/ed941372-492d-4b2d-abbe-2657013df007" />
+
 
 **S3 (Storage):**
 - Purpose: Storing and retrieving files and data such as images, videos, backups, logs, and static website files.
-- Screenshot: ![S3 Dashboard](screenshots/console-navigation/s3-dashboard.png)
+- Screenshot: <img width="1502" height="785" alt="s3-dashboard" src="https://github.com/user-attachments/assets/13edf7a6-e935-4e47-a9a2-b052ff28aa45" />
+
 
 **RDS (Database):**
 - Purpose: Setting up, operating, and scaling relational databases (like MySQL, PostgreSQL, or SQL Server)and also automating time-consuming management tasks like hardware provisioning, database setups, patching, and backups.
-- Screenshot: ![RDS Dashboard](screenshots/console-navigation/rds-dashboard.png)
+- Screenshot: <img width="1850" height="585" alt="RDS-dashboard" src="https://github.com/user-attachments/assets/5178e3f3-729b-406e-98af-077930af740b" />
+
 
 **VPC (Networking):**
 - Purpose: Provisioning a private, isolated virtual network within AWS. It gives total control over the networking environment, including IP address ranges, subnets, and security firewalls.
-- Screenshot: ![VPC Dashboard](screenshots/console-navigation/vpc-dashboard.png)
+- Screenshot: <img width="1859" height="732" alt="VPC-dashboard" src="https://github.com/user-attachments/assets/6cde631a-ade7-42c0-9078-7a34a6bde32e" />
+
 
 **IAM (Security):**
 - Purpose: Managing security, access control, and permissions. It determines exactly who (users) or what (applications) can log into your AWS account and what specific resources they are allowed to interact with.
-- Screenshot: ![IAM Dashboard](screenshots/console-navigation/iam-dashboard.png)
+- Screenshot:<img width="1854" height="698" alt="IAM-dashboard" src="https://github.com/user-attachments/assets/53424e5f-a58f-4e73-a477-652f171bfb3b" />
+
 
 ### Part B: Console Features
 
