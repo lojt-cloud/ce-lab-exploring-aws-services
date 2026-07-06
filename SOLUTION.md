@@ -150,9 +150,9 @@ region     : eu-west-2                : config-file      : ~/.aws/config
 See attached `cli-outputs.txt` file for all command outputs.
 
 **Key findings:**
-- My AWS Account ID: [account-id]
-- Default region: [region]
-- Number of regions available: [number]
+- My AWS Account ID: 436-3183-6010
+- Default region: eu-west-2
+- Number of regions available: 17
 
 ---
 
@@ -161,108 +161,77 @@ See attached `cli-outputs.txt` file for all command outputs.
 ### Pricing Worksheet:
 
 **1. EC2 t3.micro (Linux, us-east-1):**
-- On-Demand: $______ per hour
-- Monthly (730 hours): $______
-- Free Tier eligible: [Yes/No]
-- Free Tier details: [hours/month free]
+- On-Demand: $_$0.0104 per hour
+- Monthly (730 hours): $_$7.59
+- Free Tier eligible: Yes
+- Free Tier details: 750 hours/month free for the first 12 months
 
 **2. S3 Standard Storage:**
-- 100 GB monthly cost: $______
-- Free Tier: First ___ GB free for 12 months
-- Cost per GB: $______
+- 100 GB monthly cost: $_$2.30_
+- Free Tier: First _5__ GB free for 12 months
+- Cost per GB: $_$0.023
 
 **3. RDS db.t3.micro (MySQL):**
-- Monthly cost: $______
-- Storage (20 GB): $______
-- Total: $______
-- Free Tier eligible: [Yes/No]
+- Monthly cost: $21.90
+- Storage (20 GB): $$2.30
+- Total: $24.20
+- Free Tier eligible: Yes
 
 **4. Data Transfer OUT:**
-- 100 GB cost: $______
-- First ___ GB free per month
+- 100 GB cost: $_$0.00_
+- First 100 GB free per month
 
 ### AWS Pricing Calculator Estimate:
 
-![Pricing Calculator](screenshots/pricing-calculator.png)
+<img width="2453" height="685" alt="pricing-calculator" src="https://github.com/user-attachments/assets/f9c83ab8-0fde-4fdf-8233-d047e43356fd" />
 
-**Estimate Link:** [Paste your estimate link here]
 
-**Total Estimated Monthly Cost:** $______
+**Estimate Link:** (https://calculator.aws/#/estimate?id=18eda9eb066d5967db3d2afe2fe7ce43285aa650)
+
+**Total Estimated Monthly Cost:** $44.61  / month  (without free tier)
 
 ---
 
 ## Exercise 5: Documentation Hunt
 
 ### EC2 Instance Types:
-- Documentation URL: [URL]
-- t3.medium vCPUs: ______
-- t3.medium memory: ______ GB
+- Documentation URL:(https://aws.amazon.com/ec2/instance-types/t3/)
+- t3.medium vCPUs: __2____
+- t3.medium memory: __4____ GB
 
 ### S3 Storage Classes:
-- Documentation URL: [URL]
+- Documentation URL: (https://aws.amazon.com/s3/storage-classes/)
 - All storage classes:
-  1. [Class name]
-  2. [Class name]
-  3. [Class name]
-  4. [Etc...]
-- Cheapest for archive: [Class name]
-
+  1. S3 Standard (General-purpose storage for frequently accessed data)
+  2. S3 Intelligent-Tiering (Automatic cost savings for data with unknown access patterns)
+  3. S3 Standard-Infrequent Access (S3 Standard-IA) (For long-lived, less frequently accessed data)
+  4. S3 One Zone-Infrequent Access (S3 One Zone-IA) (Lower cost option for less frequent data, stored in 1 AZ)
+  5. S3 Glacier Deep Archive (Lowest-cost storage for long-term data retention)
+- Cheapest for archive: S3 Glacier Deep Archive
 ### IAM Best Practices:
-- Documentation URL: [URL]
+- Documentation URL:(https://aws.amazon.com/iam/resources/best-practices/)
 - Three best practices:
-  1. [Practice]
-  2. [Practice]
-  3. [Practice]
+  1. Require human users to use federation with an identity provider to access AWS using temporary credentials (avoid long-term access keys).
+  2. Require Multi-Factor Authentication (MFA) for all accounts, especially privileged users and the root user.
+  3. Apply the Principle of Least Privilege (grant identities the minimum permissions required to perform their specific task, and nothing more).
 
 ### Free Tier Limits:
-- Documentation URL: [URL]
-- EC2 t2.micro hours/month: ______
-- S3 storage free: ______ GB
+- Documentation URL: https://aws.amazon.com/free/
+- EC2 t2.micro hours/month: __750____
+- S3 storage free: ___5___ GB
 
 ---
 
-## Exercise 6: Regions and Availability Zones
-
-### Your Current Region:
-- Region Name: [e.g., US East (N. Virginia)]
-- Region Code: [e.g., us-east-1]
-- Number of AZs: ______
-
-### Concept Questions:
-
-**What is the difference between a Region and an Availability Zone?**
-
-[Your answer]
-
----
-
-**Why does AWS have multiple regions?**
-
-[Your answer]
-
----
-
-**How many Availability Zones does each region typically have?**
-
-[Your answer]
-
----
-
-**Can you deploy resources in multiple regions simultaneously?**
-
-[Your answer]
-
----
 
 ### Region Selection Analysis:
 
 | Scenario | Best Region | Reasoning |
 |----------|-------------|-----------|
-| Serving users primarily in Europe | [region] | [Your reasoning] |
-| Lowest cost for non-critical workloads | [region] | [Your reasoning] |
-| GDPR compliance required | [region] | [Your reasoning] |
-| Serving users in Asia-Pacific | [region] | [Your reasoning] |
-| Need newest AWS services | [region] | [Your reasoning] |
+| Serving users primarily in Europe | eu-west-1 (Ireland) or eu-west-2 (London) | Geographically placing infrastructure near your users dramatically cuts network round-trip times (latency), ensuring the app loads quickly and smoothly for them.|
+| Lowest cost for non-critical workloads | us-east-1 (N. Virginia) or us-east-2 (Ohio)| These are AWS's massive, high-volume flagship hubs. Due to economies of scale, they consistently offer the lowest baseline pricing for compute, storage, and databases globally. |
+| GDPR compliance required | eu-central-1 (Frankfurt) or eu-west-1 (Ireland) | To comply with strict EU data privacy laws (GDPR), sensitive user data must physically reside within the borders of the European Union / EEA. (Note: eu-west-2 London covers UK-GDPR).|
+| Serving users in Asia-Pacific |ap-southeast-1 (Singapore) or ap-northeast-1 (Tokyo)| Cuts transit times across undersea fiber-optic cables by establishing a localized regional endpoint for users located throughout Asia and Oceania.|
+| Need newest AWS services | us-east-1 (N. Virginia) | As AWS's oldest, original, and largest footprint, nearly all brand-new services, public previews, and advanced machine learning hardware launch here first before trickling down to secondary regions. |
 
 ---
 
@@ -303,35 +272,35 @@ See attached `cli-outputs.txt` file for all command outputs.
 
 **What surprised you most about AWS services?**
 
-[Your answer]
+certain services have a wide range of prices depending on need. 
 
 ---
 
 **Which AWS service are you most excited to learn about?**
 
-[Your answer]
+unsure yet
 
 ---
 
 **How comfortable do you feel navigating the AWS Console now?**
 
 [Your answer: Scale 1-10 and why]
-
+10
 ---
 
 ## Checklist
 
-- [ ] All service dashboards visited and documented
-- [ ] All CLI commands executed successfully
-- [ ] All pricing research completed
-- [ ] All documentation URLs found
-- [ ] Region analysis completed
-- [ ] All screenshots captured
-- [ ] All questions answered
-- [ ] Work committed to Git
-- [ ] Pull request created
+- [x ] All service dashboards visited and documented
+- [x ] All CLI commands executed successfully
+- [ x] All pricing research completed
+- [ x] All documentation URLs found
+- [ x] Region analysis completed
+- [ x] All screenshots captured
+- [x ] All questions answered
+- [ x] Work committed to Git
+- [ x] Pull request created
 
 ---
 
-**Completed By:** [Your Name]  
-**Date:** [Date]
+**Completed By:** [Balint Lojt]  
+**Date:** [06/07/2026]
