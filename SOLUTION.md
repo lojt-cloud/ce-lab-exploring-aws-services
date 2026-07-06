@@ -46,9 +46,9 @@
 
 **Region Selector:**
 ![Region Changed](screenshots/console-navigation/region-selector.png)
-- Original region: [region]
-- Changed to: [region]
-- Changed back: [Yes/No]
+- Original region: United States (N. Virginia)
+- Changed to: Europe (Stockholm)
+- Changed back: [Yes]
 
 ---
 
@@ -57,7 +57,7 @@
 ### Completed Service Matrix:
 
 | Category | Services | Primary Use Case |
-|----------|----------|------------------|
+
 | Compute | EC2, Lambda, Elastic Beanstalk, ECS | EC2 is a virtual server for running custom applications and workloads. Lambda	is a serverless function that runs code automatically in response to events. Elastic Beanstalk is a Platform-as-a-Service (PaaS) to deploy web apps without managing underlying hardware. ECS (Elastic Container Service) is a	running and scaling Docker containers.|
 
 | Storage | S3, EBS, EFS, S3 glacier | S3 is an	object storage for files, backups, and static web hosting.
@@ -65,7 +65,7 @@ EBS (Elastic Block Store)	is a dedicated, persistent block storage volume for EC
 EFS (Elastic File System)is a	scalable file storage that can be shared across multiple EC2 instances simultaneously.
 S3 Glacier is a low-cost archive storage for data that is rarely accessed.|
 
-| Database | RDS,DynamoDB,ElastiCache | RDS is a	managed relational database (SQL) like MySQL, PostgreSQL, and Oracle.
+| Database | RDS, DynamoDB, ElastiCache | RDS is a	managed relational database (SQL) like MySQL, PostgreSQL, and Oracle.
 DynamoDB is an ultra-fast, fully managed NoSQL database for key-value and document data.
 ElastiCache is an in-memory data store used to cache frequent database queries and speed up apps.|
 
@@ -132,12 +132,17 @@ Alarms: It can send notifications (or trigger automatic scaling events) if a met
 
 ### CLI Version:
 ```
-[Paste output of: aws --version]
+aws-cli/2.31.35 Python/3.14.4 Linux/6.6.114.1-microsoft-standard-WSL2 source/x86_64.ubuntu.26aws configure list
+
 ```
 
 ### Configuration:
 ```
-[Paste output of: aws configure list]
+NAME       : VALUE                    : TYPE             : LOCATION
+profile    : <not set>                : None             : None
+access_key : ****************UA73     : shared-credentials-file :
+secret_key : ****************5CXA     : shared-credentials-file :
+region     : eu-west-2                : config-file      : ~/.aws/config
 ```
 
 ### CLI Outputs:
