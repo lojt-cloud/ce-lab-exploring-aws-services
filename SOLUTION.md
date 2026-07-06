@@ -58,42 +58,73 @@
 
 | Category | Services | Primary Use Case |
 |----------|----------|------------------|
-| Compute | [List 3-5 services] | [Use cases] |
-| Storage | [List 3-5 services] | [Use cases] |
-| Database | [List 3-5 services] | [Use cases] |
-| Networking | [List 3-5 services] | [Use cases] |
-| Security | [List 3-5 services] | [Use cases] |
-| Management | [List 3-5 services] | [Use cases] |
+| Compute | EC2, Lambda, Elastic Beanstalk, ECS | EC2 is a virtual server for running custom applications and workloads. Lambda	is a serverless function that runs code automatically in response to events. Elastic Beanstalk is a Platform-as-a-Service (PaaS) to deploy web apps without managing underlying hardware. ECS (Elastic Container Service) is a	running and scaling Docker containers.|
+
+| Storage | S3, EBS, EFS, S3 glacier | S3 is an	object storage for files, backups, and static web hosting.
+EBS (Elastic Block Store)	is a dedicated, persistent block storage volume for EC2 instances (like a hard drive).
+EFS (Elastic File System)is a	scalable file storage that can be shared across multiple EC2 instances simultaneously.
+S3 Glacier is a low-cost archive storage for data that is rarely accessed.|
+
+| Database | RDS,DynamoDB,ElastiCache | RDS is a	managed relational database (SQL) like MySQL, PostgreSQL, and Oracle.
+DynamoDB is an ultra-fast, fully managed NoSQL database for key-value and document data.
+ElastiCache is an in-memory data store used to cache frequent database queries and speed up apps.|
+
+| Networking | VPC, CloudFront, Route53 |VPC is an isolated, secure virtual network inside the cloud.
+CloudFront is a global Content Delivery Network (CDN) that caches data closer to users.
+Route 53	is a highly available Domain Name System (DNS) service to route user traffic to apps. |
+
+| Security | [List 3-5 services] | IAM	is a Controlling who can log in and what permissions they have to AWS resources.
+KMS (Key Management Service) is used to create and manage cryptographic keys to encrypt data.
+CloudTrail is for	recording and auditing all API calls and user actions across the account.
+Secrets Manager	is used for safely storing and automatically rotating database credentials and API keys. |
+
+| Management | CloudWatch, CloudFormation, Systems Manager | CloudWatch is a	Monitoring system for metrics, gathering logs, and setting performance alarms.
+CloudFormation is used for code (JSON/YAML) to automatically deploy and manage AWS infrastructure.
+Systems Manager is a central dashboard to patch, configure, and manage cloud resources at scale. |
 
 ### Research Question Answers:
 
 **1. What's the difference between EC2 and Lambda?**
 
-[Your answer]
+EC2 is server-based. For example, rent a virtual machine, choose the operating system, and keep it running 24/7. You have to pay for the time the server is on, whether it's processing traffic or sitting idle. Also responsible for patching the OS and scaling, the provider does not do it.
+Lambda is serverless. You upload your raw code, and AWS handles the underlying infrastructure entirely. It only runs (and you only pay) when triggered by an event (like an uploaded file or an API call), scaling down to zero when inactive.
+
+Short answer: C2 is a virtual server that runs continuously and requires you to manage it; Lambda is serverless code that only runs and charges when triggered by an event.
 
 ---
 
 **2. When would you use S3 vs EBS?**
 
-[Your answer]
+ Choose S3 when you need to store standalone files (images, videos, backups, logs) that need to be accessed directly from the web or shared globally. It is infinite, independent storage accessible via an API/URL.
 
----
+ Choose EBS when you need a local, high-speed hard drive plugged directly into a specific EC2 instance to run an operating system, install software, or host a traditional database. It cannot be accessed over the internet on its own.
+
+Short answer: S3 is a global, infinite storage locker for files (accessible via URLs); EBS is a virtual hard drive attached directly to a specific EC2 instance to run its operating system and apps.
+
 
 **3. What's the difference between RDS and DynamoDB?**
 
-[Your answer]
+RDS is handling Relational (SQL) databases. It is built for structured data with strict schemas, complex relationships, and deep analytical queries requiring table joins (e.g., financial ledger apps).
+
+DynamoDB is handling Non-Relational (NoSQL) databases. It uses a flexible key-value format and is built for massive scale, offering consistent, single-digit millisecond performance even with billions of rows (e.g., gaming leaderboards, shopping carts).
+
+Short answer: RDS is for structured, traditional relational databases (SQL) using tables and relationships; DynamoDB is a massive-scale, flexible key-value database (NoSQL) designed for fast speeds.
 
 ---
 
 **4. Why do you need a VPC?**
 
-[Your answer]
+A VPC functions as a digital security perimeter for your cloud infrastructure. Without it, your servers and databases would be directly exposed to the public internet. A VPC allows you to isolate sensitive data in a private subnet, control incoming and outgoing traffic via firewalls (Security Groups), and dictate exactly how your resources communicate with the outside world.
 
 ---
 
 **5. What does CloudWatch monitor?**
 
-[Your answer]
+CloudWatch monitors the health, performance, and behaviour of your AWS resources and applications. 
+It tracks:
+Metrics: CPU utilisation, network traffic, disk read/writes.
+Logs: Application logs, system crash dumps, and custom text logs.
+Alarms: It can send notifications (or trigger automatic scaling events) if a metric crosses a certain threshold—such as the EC2 CPU staying above 80% for too long.
 
 ---
 
